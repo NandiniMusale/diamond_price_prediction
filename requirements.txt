@@ -1,0 +1,7 @@
+pandas=2.1.2
+scikit-learn
+numpy
+seaborn
+ipykernel
+
+-e .
