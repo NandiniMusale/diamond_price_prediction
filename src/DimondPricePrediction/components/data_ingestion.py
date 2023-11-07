@@ -2,12 +2,13 @@ import pandas as pd
 import numpy as np
 from src.DimondPricePrediction.logger import logging
 from src.DimondPricePrediction.exception import customexception
+
 import os
 import sys
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from pathlib import Path
-logging.info("entred in to data ingestion part")
+
 class DataIngestionConfig:
     raw_data_path:str=os.path.join("artifacts","raw.csv")
     train_data_path:str=os.path.join("artifacts","train.csv")
@@ -15,7 +16,6 @@ class DataIngestionConfig:
 
 
 class DataIngestion:
-    
     def __init__(self):
         self.ingestion_config=DataIngestionConfig()
         
@@ -42,7 +42,12 @@ class DataIngestion:
             
             logging.info("data ingestion part completed")
             
-            
+            return (
+                 
+                
+                self.ingestion_config.train_data_path,
+                self.ingestion_config.test_data_path
+            )
             
             
         except Exception as e:
